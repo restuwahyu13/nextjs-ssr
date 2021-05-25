@@ -1,0 +1,45 @@
+{
+	"name": "next-ts-starter",
+	"version": "1.0.0",
+	"description": "Custom server using express server side rendering",
+	"main": "index.js",
+	"scripts": {
+		"dev:server": "nodemon",
+		"dev:client": "next dev",
+		"start:client": "next start",
+		"start:server": "cross-env NODE_ENV=production node dist/index.js",
+		"build": "next build && tsc -P tsconfig.server.json"
+	},
+	"keywords": [
+		"nextjs",
+		"typescript"
+	],
+	"author": "restuwahyu13",
+	"license": "MIT",
+	"dependencies": {
+		"axios": "^0.21.1",
+		"body-parser": "^1.19.0",
+		"cross-env": "^7.0.2",
+		"express": "^4.17.1",
+		"next": "^9.5.1",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.10.5",
+		"@babel/core": "^7.11.1",
+		"@babel/plugin-transform-runtime": "^7.11.0",
+		"@babel/preset-env": "^7.11.0",
+		"@babel/preset-typescript": "^7.10.4",
+		"@types/axios": "^0.14.0",
+		"@types/body-parser": "^1.19.0",
+		"@types/express": "^4.17.11",
+		"@types/node": "^14.17.1",
+		"@types/react": "^16.9.44",
+		"@types/react-dom": "^16.9.8",
+		"nodemon": "^2.0.4",
+		"prettier": "^2.0.5",
+		"ts-node": "^8.10.2",
+		"typescript": "^3.9.7"
+	}
+}
