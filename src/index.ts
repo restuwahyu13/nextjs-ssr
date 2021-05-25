@@ -1,5 +1,5 @@
 import next from 'next'
-import express from 'express'
+import express, { Express } from 'express'
 import bodyParser from 'body-parser'
 import userRoute from './routes/users'
 import todoRoute from './routes/todos'
@@ -10,10 +10,10 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
-	const app = express()
+	const app = express() as Express
 
 	app.use(bodyParser.json())
-	app.use(bodyParser.urlencoded({ extended: false }))
+	app.use(bodyParser.urlencoded({ extended: true }))
 
 	app.use('/api/v1', userRoute())
 	app.use('/api/v1', todoRoute())
