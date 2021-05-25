@@ -13,8 +13,6 @@
 		"downlevelIteration": true,
 		"isolatedModules": true,
 		"skipLibCheck": true,
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
 		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
 		"allowJs": true,
