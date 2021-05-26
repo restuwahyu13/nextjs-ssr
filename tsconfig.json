@@ -17,7 +17,8 @@
 		"resolveJsonModule": true,
 		"allowJs": true,
 		"sourceMap": true,
-		"noImplicitAny": false
+		"noImplicitAny": false,
+		"noImplicitReturns": false
 	},
 	"exclude": ["dist", ".next", "next.config.js"],
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
