@@ -1,4 +1,14 @@
 {
-	"presets": ["next/babel", "@babel/preset-typescript", "@babel/preset-env"],
-	"plugins": ["@babel/plugin-transform-runtime"]
+	"presets": [
+		"next/babel",
+		"@babel/preset-typescript",
+		["@babel/preset-env", { "useBuiltIns": "usage", "corejs": 3, "bugfixes": true, "forceAllTransforms": true }]
+	],
+	"plugins": [
+		"@babel/plugin-transform-async-to-generator",
+		"@babel/plugin-transform-runtime",
+		"@babel/plugin-proposal-object-rest-spread",
+		"@babel/plugin-proposal-class-properties",
+		["@babel/plugin-syntax-typescript", { "isTSX": true }]
+	]
 }
