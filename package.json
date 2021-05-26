@@ -7,7 +7,7 @@
 		"dev:server": "nodemon",
 		"dev:client": "next dev",
 		"start:client": "next start",
-		"start:server": "cross-env NODE_ENV=production node dist/index.js",
+		"start": "cross-env NODE_ENV=production node dist/index.js",
 		"build": "next build && tsc -P tsconfig.server.json"
 	},
 	"repository": {

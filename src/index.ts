@@ -18,7 +18,7 @@ app.prepare().then(() => {
 	app.use('/api/v1', userRoute())
 	app.use('/api/v1', todoRoute())
 
-	app.all('*', (req, res) => handle(req, res))
+	app.get('**', (req, res) => handle(req, res))
 
 	app.listen(port, () => console.log('server is running on port ' + port))
 })
