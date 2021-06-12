@@ -6,6 +6,8 @@ const postcssStyleLint = require('stylelint')
 const postcssNormalize = require('postcss-normalize')
 
 module.exports = {
+  compress: process.env.NODE_ENV !== 'production' ? false : true,
+  poweredByHeader: false,
   cssModule: true,
   postcssOptions: {
     plugins: [
