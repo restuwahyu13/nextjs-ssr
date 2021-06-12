@@ -1,6 +1,7 @@
 // CSS Module Teritory
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../public/static/css/style.css'
+import '../../public/static/scss/style.scss'
 import Head from 'next/head'
 
 export default function App({ Component, pageProps }) {

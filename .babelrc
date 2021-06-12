@@ -1,6 +1,11 @@
 {
-"presets": [
-	"next/babel",
+"presets":[
+	[
+	  "next/babel", {
+	  "styled-jsx/babel": { 
+	    "plugins": ["@styled-jsx/plugin-sass", {"optimizeForSpeed": true}] }
+	  }
+	],
 	"@babel/preset-typescript",
 	["@babel/preset-env", { "useBuiltIns": "usage", "corejs": 3, "bugfixes": true, "forceAllTransforms": true }]
 ],
@@ -19,18 +24,22 @@
 	"@babel/plugin-syntax-dynamic-import",
 	["@babel/plugin-syntax-typescript", { "isTSX": true }],
 	"babel-plugin-transform-inline-consecutive-adds",
-	"babel-plugin-minify-constant-folding",
-	"babel-plugin-minify-flip-comparisons",
-	["babel-plugin-styled-components", {"fileName": true, "minify": false, "transpileTemplateLiterals": false, "pure": false}]
+	["babel-plugin-styled-components", {"fileName": true, "minify": false, "transpileTemplateLiterals": false, "pure": false}],
+	"react-css-modules",
+	"react-html-attrs",
+	"module:jsx-control-statements"
 ],
 "env": {
 	"production": {
 		"plugins": [
-		   "babel-plugin-transform-remove-console",
+		   "transform-remove-console",
+		   "transform-remove-strict-mode",
 		   "babel-plugin-transform-remove-undefined",
-		   "babel-plugin-transform-remove-strict-mode",
-		   "babel-plugin-minify-dead-code-elimination",
-		   ["babel-plugin-styled-components", {"fileName": true, "minify": true, "transpileTemplateLiterals": true, "pure": true}]
+		   ["babel-plugin-styled-components", {"fileName": true, "minify": true, "transpileTemplateLiterals": true, "pure": true}],
+		   "minify-constant-folding",
+		   "minify-flip-comparisons",
+		   ["minify-dead-code-elimination", { "optimizeRawSize": true }],
+		   "react-remove-properties"
 		]
 	  }
    }
