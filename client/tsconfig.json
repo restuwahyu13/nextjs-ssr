@@ -19,7 +19,6 @@
 		"importHelpers": true,
 		"sourceMap": true,
 		"strict": true,
-		"alwaysStrict": false,
 		"noImplicitAny": false,
 		"noImplicitReturns": false,
 		"noImplicitThis": false,
