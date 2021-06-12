@@ -15,7 +15,6 @@ export default function App({ Component, pageProps }) {
 				<meta name='theme-color' content='#000000' />
 				<meta name='keywords' content='Nextjs CSA Boilerplate' />
 				<meta name='description' content='Minimalize Modern Next Boilerplate 2021' />
-				<link rel='stylesheet' href='public/static/css/style.css' type='text/css' />
 			</Head>
 			<Component {...pageProps} />
 		</>
