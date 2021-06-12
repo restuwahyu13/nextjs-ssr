@@ -2,5 +2,5 @@
 	"watch": ["src"],
 	"exec": "ts-node src/server.ts",
 	"ext": "ts",
-	"ignore": ["dist", "clients/.next", "next.config.js", "node_modules"]
+	"ignore": ["dist", "client/.next", "next.config.js", "node_modules"]
 }

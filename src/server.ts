@@ -8,14 +8,16 @@ import path from 'path'
 
 const clientPort: string | number | undefined = process.env.PORT || 3000
 const serverPort:  string | number | undefined = process.env.PORT || 5000
-const dev: string = process.env.NODE_ENV !== 'production'
-const app = next({ dir: path.resolve(process.cwd(), 'clients'), dev })
+const dev: boolean = process.env.NODE_ENV !== 'production'
+const app = next({ dir: path.resolve(process.cwd(), 'client'), dev })
 const handle = app.getRequestHandler()
-const app = express() as Express
-const server = http.createServer(app) as Server
 
-if(process.env.NODE_ENV !== ('production')) {
+// if(process.env.NODE_ENV !== ('production')) {
+
 	app.prepare().then(() => {
+		const app = express() as Express
+		const server = http.createServer(app) as Server
+
 		app.use(bodyParser.json())
 		app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -24,16 +26,17 @@ if(process.env.NODE_ENV !== ('production')) {
 
 		app.get('**', (req, res) => handle(req, res))
 
-		server.listen(port, () => console.log('client is running on port ' + clientPort))
+		server.listen(clientPort, () => console.log('client is running on port ' + clientPort))
 	})
-} else {
-	app.prepare().then(() => {
-		app.use(bodyParser.json())
-		app.use(bodyParser.urlencoded({ extended: true }))
+// } else {
+//    const app = express() as Express
+//    const server = http.createServer(app) as Server
 
-		app.use('/api/v1', userRoute())
-		app.use('/api/v1', todoRoute())
+// 	 	app.use(bodyParser.json())
+// 		app.use(bodyParser.urlencoded({ extended: true }))
 
-		server.listen(port, () => console.log('server is running on port ' + serverPort))
-	})
-}
+// 		app.use('/api/v1', userRoute())
+// 		app.use('/api/v1', todoRoute())
+
+// 		server.listen(serverPort, () => console.log('server is running on port ' + serverPort))
+// }
