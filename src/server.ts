@@ -1,23 +1,21 @@
 import next from 'next'
 import express, { Express } from 'express'
-import http, { Server} from 'http'
+import http, { Server } from 'http'
 import bodyParser from 'body-parser'
 import userRoute from './routes/users'
 import todoRoute from './routes/todos'
 import path from 'path'
 
+const env: boolean = process.env.NODE_ENV !== 'production'
+const nextConfig = next({ dir: path.resolve(process.cwd(), 'client'), dev: env })
+const handle = nextConfig.getRequestHandler()
 const clientPort: string | number | undefined = process.env.PORT || 3000
-const serverPort:  string | number | undefined = process.env.PORT || 5000
-const dev: boolean = process.env.NODE_ENV !== 'production'
-const app = next({ dir: path.resolve(process.cwd(), 'client'), dev })
-const handle = app.getRequestHandler()
+const serverPort: string | number | undefined = process.env.PORT || 5000
+const app = express() as Express
+const server = http.createServer(app) as Server
 
-// if(process.env.NODE_ENV !== ('production')) {
-
-	app.prepare().then(() => {
-		const app = express() as Express
-		const server = http.createServer(app) as Server
-
+if (process.env.NODE_ENV !== 'production') {
+	nextConfig.prepare().then(() => {
 		app.use(bodyParser.json())
 		app.use(bodyParser.urlencoded({ extended: true }))
 
@@ -28,15 +26,12 @@ const handle = app.getRequestHandler()
 
 		server.listen(clientPort, () => console.log('client is running on port ' + clientPort))
 	})
-// } else {
-//    const app = express() as Express
-//    const server = http.createServer(app) as Server
+} else {
+	app.use(bodyParser.json())
+	app.use(bodyParser.urlencoded({ extended: true }))
 
-// 	 	app.use(bodyParser.json())
-// 		app.use(bodyParser.urlencoded({ extended: true }))
+	app.use('/api/v1', userRoute())
+	app.use('/api/v1', todoRoute())
 
-// 		app.use('/api/v1', userRoute())
-// 		app.use('/api/v1', todoRoute())
-
-// 		server.listen(serverPort, () => console.log('server is running on port ' + serverPort))
-// }
+	server.listen(serverPort, () => console.log('server is running on port ' + serverPort))
+}
