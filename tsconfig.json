@@ -15,7 +15,7 @@
 		"resolveJsonModule": true,
 		"importHelpers": true,
 		"sourceMap": true,
-		"isolatedModules": false,
+		"isolatedModules": true,
 		"noImplicitAny": false,
 		"noImplicitReturns": false,
 		"noEmit": false,
