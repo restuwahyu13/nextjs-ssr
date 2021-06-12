@@ -1,5 +1,6 @@
 {
 	"watch": ["src"],
-	"exec": "ts-node -P tsconfig.server.json -T -H src/index.ts",
-	"ext": "ts"
+	"exec": "ts-node src/server.ts",
+	"ext": "ts",
+	"ignore": ["dist", "clients/.next", "next.config.js", "node_modules"]
 }

@@ -1,0 +1,35 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"target": "ES2015",
+		"module": "ESNext",
+		"jsx": "preserve",
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"moduleResolution": "Node",
+		"noEmit": true,
+		"esModuleInterop": true,
+		"downlevelIteration": true,
+		"isolatedModules": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"resolveJsonModule": true,
+		"allowJs": true,
+		"importHelpers": true,
+		"sourceMap": true,
+		"strict": true,
+		"alwaysStrict": false,
+		"noImplicitAny": false,
+		"noImplicitReturns": false,
+		"noImplicitThis": false,
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
+		"typeRoots": ["node_modules/@types/*"],
+		"paths": {
+			"*": ["./*.{ts,tsx}"]
+		}
+	},
+	"exclude": ["node_modules", ".next"],
+	"include": ["next-env.d.ts", "**/*.{ts,tsx}"]
+}

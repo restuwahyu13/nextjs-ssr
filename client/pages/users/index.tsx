@@ -7,7 +7,7 @@ interface UserProps {
 const Users: NextPage<UserProps> = ({ users }) => {
 	return (
 		<>
-			<h1 style={{ color: 'blue' }}>Users Data From Server</h1>
+			<h1 className='title'>Users Data From Server</h1>
 			{JSON.stringify(users)}
 		</>
 	)
