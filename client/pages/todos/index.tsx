@@ -7,7 +7,7 @@ interface TodoProps {
 const Todos: NextPage<TodoProps> = ({ todos }) => {
 	return (
 		<>
-			<h1 style={{ color: 'red' }}>Todos Data From Server</h1>
+			<h1>Todos Data From Server</h1>
 			{JSON.stringify(todos)}
 		</>
 	)
