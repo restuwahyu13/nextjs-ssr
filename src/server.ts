@@ -7,22 +7,22 @@ import todoRoute from './routes/todos'
 import path from 'path'
 
 const env: boolean = process.env.NODE_ENV !== 'production'
-const nextConfig = next({ dir: path.resolve(process.cwd(), 'client'), dev: env })
-const handle = nextConfig.getRequestHandler()
+const nextHandler = next({ dir: path.resolve(process.cwd(), 'client'), dev: env })
+const handler = nextHandler.getRequestHandler()
 const clientPort: string | number | undefined = process.env.PORT || 3000
 const serverPort: string | number | undefined = process.env.PORT || 5000
 const app = express() as Express
 const server = http.createServer(app) as Server
 
-if (process.env.NODE_ENV !== 'production') {
-	nextConfig.prepare().then(() => {
+if (process.env.TYPE !== 'server') {
+	nextHandler.prepare().then(() => {
 		app.use(bodyParser.json())
 		app.use(bodyParser.urlencoded({ extended: true }))
 
 		app.use('/api/v1', userRoute())
 		app.use('/api/v1', todoRoute())
 
-		app.get('**', (req, res) => handle(req, res))
+		app.get('**', (req, res) => handler(req, res))
 
 		server.listen(clientPort, () => console.log('client is running on port ' + clientPort))
 	})
