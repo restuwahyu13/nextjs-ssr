@@ -2,7 +2,7 @@ const path = require('path')
 const postcssImport = require('postcss-import')
 const postcssFlexbox = require('postcss-flexbugs-fixes')
 const postcssPresetEnv = require('postcss-preset-env')
-// const postcssNano = require('cssnano')
+const postcssNano = require('cssnano')
 const postcssStyleLint = require('stylelint')
 const postcssNormalize = require('postcss-normalize')
 
@@ -25,9 +25,9 @@ module.exports = {
         },
         autoprefixer: { grid: 'autoplace', flexbox: 'no-2009' }
       }),
-      // postcssNano({
-      //   preset: ['advanced', { discardComments: { removeAll: true }, convertValues: { precision: true } }]
-      // }),
+      postcssNano({
+        preset: ['advanced', { discardComments: { removeAll: true }, convertValues: { precision: true } }]
+      }),
       postcssStyleLint({
         fix: true,
         configFile: path.join(__dirname, '.stylelintrc')
