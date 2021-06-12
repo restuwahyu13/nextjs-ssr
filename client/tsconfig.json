@@ -29,6 +29,6 @@
 			"*": ["./*.{ts,tsx}"]
 		}
 	},
-	"exclude": ["node_modules", ".next"],
+	"exclude": ["node_modules", "dist", "public", ".next"],
 	"include": ["next-env.d.ts", "**/*.{ts,tsx}"]
 }
